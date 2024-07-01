@@ -41,6 +41,8 @@ Future<void> calculateAndNotify() async {
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
+      sound: RawResourceAndroidNotificationSound("notification.wav"),
+      playSound: true,
     );
     const NotificationDetails platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
