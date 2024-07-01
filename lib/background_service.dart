@@ -32,7 +32,7 @@ Future<void> calculateAndNotify() async {
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-  int number = DateTime.now().minute; // Example number based on minute
+  int number = DateTime.now().second; // Example number based on minute
 
   if (isPrime(number)) {
     const AndroidNotificationDetails androidPlatformChannelSpecifics = AndroidNotificationDetails(
@@ -40,7 +40,9 @@ Future<void> calculateAndNotify() async {
       'your_channel_name',
       importance: Importance.max,
       priority: Priority.high,
-      showWhen: false,
+      showWhen: true,
+      enableVibration: true,
+      enableLights: true,
       sound: RawResourceAndroidNotificationSound("notification.wav"),
       playSound: true,
     );

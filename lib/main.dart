@@ -7,12 +7,12 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure the binding is initialized
   Workmanager().initialize(
     callbackDispatcher,
-    isInDebugMode: true, // Change to false in production
+    isInDebugMode: false, // Change to false in production
   );
   Workmanager().registerPeriodicTask(
     "1",
     simplePeriodicTask,
-    frequency: Duration(minutes: 5), // The minimum interval is 15 minutes
+    frequency: Duration(seconds: 5),
   );
 
   runApp(MyApp());
